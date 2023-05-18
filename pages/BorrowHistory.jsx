@@ -35,7 +35,7 @@ const BorrowHistory = () => {
         }
         <div className='font-bold text-gray-700 mt-5'>
           Current Statement of Account as of {currentDate}
-          
+
           
         </div>
     </div>
