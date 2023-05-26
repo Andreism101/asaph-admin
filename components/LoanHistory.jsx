@@ -22,11 +22,10 @@ const LoanHistory = () => {
                             </Link>
                         </td>
                         <td scope="col" class="px-6 py-3">ADHD938024</td>
-                        <td scope="col" class="px-6 py-3">&#8369;37,654</td>
+                        <td scope="col" class="px-6 py-3">&#8369;20,000</td>
                         <td scope="col" class="px-6 py-3">
                             <div class="flex items-center">
-                                <div class="h-2.5 w-2.5 rounded-full bg-yellow-500 mr-2"></div> 
-                                Not Complete
+                                <div class="h-2.5 w-2.5 rounded-full bg-yellow-500 mr-2"></div> Completed
                             </div>
                         </td>
                     </tr>

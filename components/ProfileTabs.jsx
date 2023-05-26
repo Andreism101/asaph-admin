@@ -24,7 +24,7 @@ const ProfileTabs = () => {
   return (
     <>
         <div class="sm:hidden mt-5 w-full">
-            <select id="tabs" class="bg-gray-700 border border-gray-300 text-white w-72 text-md rounded-lg block p-2.5"
+            <select id="tabs" class="bg-gray-50 border border-gray-300 text-gray-900 w-full text-md rounded-lg block p-2.5"
                 onChange={(event) => router.push(event.target.value)}
                 value={router.pathname}
             >
@@ -32,7 +32,10 @@ const ProfileTabs = () => {
                 <option 
                     key={name}
                     value={link}
-                    className='text-black bg-white'
+                    className={`${router.pathname == link 
+                        ? 'text-gray-900 bg-gray-300' 
+                        : 'bg-white hover:text-gray-700 hover:bg-gray-300' } 
+                        p-4 m-1 rounded-lg `}
                 >
                     {name}
                 </option>
