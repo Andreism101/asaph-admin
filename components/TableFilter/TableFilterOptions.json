@@ -1,0 +1,16 @@
+[
+
+    {
+        "path": "/",
+        "option": "A-Z"
+    },
+    {
+        "path": "/",
+        "option": "Active"
+    },
+    {
+        "path": "/",
+        "option": "Inactive"
+    }
+
+]

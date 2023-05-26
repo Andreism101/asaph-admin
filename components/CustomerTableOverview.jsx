@@ -1,14 +1,18 @@
 import Link from 'next/link';
 import React from 'react'
 import { MdOutlineSearch } from "react-icons/md";
+import TableFilter from './TableFilter/TableFilter';
 
 const CustomerTableOverview = () => {
   return (
     <div class=" overflow-x-auto shadow-md px-5">
-        <div class="flex items-center justify-between pb-4">
+        <div class="flex items-center justify-items-start gap-3 pb-4">
             <label for="table-search" class="sr-only">Search</label>
-            <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search : Name, ID"/>
+            <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50" placeholder="Search : Name, ID"/>
+            <TableFilter/>
+            
         </div>
+
         <table class="w-full text-left">
             <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white">
                 Borrower Search
