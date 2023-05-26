@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import TopCards from '@/components/TopCards'
 import CustomerTableOverview from '@/components/CustomerTableOverview'
 
