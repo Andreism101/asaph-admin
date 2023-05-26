@@ -1,25 +1,6 @@
-
-import { useParams, Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import fireDb from "../pages/firebase";
+import React from 'react'
 
 const PersonalInfo = () => {
-  const [user, setUser] = useState({});
-
-  const { id } = useParams();
-
-  useEffect(() => {
-    fireDb
-      .child(`1EaoWoCz_zfqe0M1kl5vkqnVEDSwSrBKZzibAGZ63rrM/Members/${id}`)
-      .get()
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          setUser({ ...snapshot.val() });
-        } else {
-          setUser({});
-        }
-      });
-  }, [id]);
   return (
     <>
         <div className='px-5 pt-4 mb-5 font-bold text-xl'>
@@ -34,7 +15,7 @@ const PersonalInfo = () => {
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value={user.FirstName} disabled
+              value="Juan" disabled
             />
           </div>
           <div className='mx-3'>
