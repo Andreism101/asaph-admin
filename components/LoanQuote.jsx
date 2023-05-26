@@ -1,28 +1,28 @@
 import React from 'react'
 
-const DTI = () => {
+const LoanQuote = () => {
   return (
     <div className='mx-16 grid grid-cols-1 md:px-10'>
         <div className='text-center font-semibold'>A. Monthly Income</div>
         <div className='grid md:grid-cols-2'>
           <div></div>
-          <div className='flex justify-between'>
+          <div className='block md:flex justify-between'>
             <div className=''>Monthly Gross Income</div>
-            <div className=''>0.00</div>
+            <div className='text-right'>0.00</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
           <div></div>
-          <div className='flex justify-between'>
+          <div className='block md:flex justify-between'>
             <div className=''>Other Monthly Income</div>
-            <div className=''>0.00</div>
+            <div className='text-right'>0.00</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
           <div></div>
-          <div className='flex justify-between font-semibold'>
+          <div className='block md:flex justify-between font-semibold'>
             <div className=''>Total Monthly Income</div>
-            <div className=''>0.00</div>
+            <div className='text-right'>0.00</div>
           </div>
         </div>
         <div className='text-center font-semibold'>
@@ -30,30 +30,30 @@ const DTI = () => {
         </div>
         <div className='grid md:grid-cols-2'>
           <div></div>
-          <div className='flex justify-between'>
+          <div className='block md:flex justify-between'>
             <div className=''>Monthly Mortgage or Rent</div>
-            <div className=''>0.00</div>
+            <div className='text-right'>0.00</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
           <div></div>
-          <div className='flex justify-between'>
+          <div className='block md:flex justify-between'>
             <div className=''>Monthly Other Payments</div>
-            <div className=''>0.00</div>
+            <div className='text-right'>0.00</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
           <div></div>
-          <div className='flex justify-between'>
+          <div className='block md:flex justify-between'>
             <div className=''>Requested Loan Amount÷Loan Month/s</div>
-            <div className=''>0.00</div>
+            <div className='text-right'>0.00</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
           <div></div>
-          <div className='flex justify-between font-semibold'>
+          <div className='block md:flex justify-between font-semibold'>
             <div className=''>Total Recurring Monthly Debt</div>
-            <div className=''>0.00</div>
+            <div className='text-right'>0.00</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
@@ -64,7 +64,7 @@ const DTI = () => {
               <div className='text-start '>
                 Debt to Income Ratio(B÷A) 
               </div>
-              <div className=''>
+              <div className='text-right'>
                 0.00
               </div>
             </div>
@@ -74,4 +74,4 @@ const DTI = () => {
   )
 }
 
-export default DTI
+export default LoanQuote
