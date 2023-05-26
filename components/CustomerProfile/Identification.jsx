@@ -4,7 +4,7 @@ import { MdCheck, MdClose } from "react-icons/md";
 const Identification = () => {
   return (
     <div>
-            <div className='grid md:grid-cols-5  font-normal md:ml-14 mx-3'>
+            <div className='grid md:grid-cols-5 font-normal md:ml-14 mx-3'>
               <div className='mx-3'>
                 <div className='flex justify-between my-3 px-3'>
                   <label className='block text-sm font-medium'>Primary ID</label>

@@ -4,22 +4,29 @@ import { MdChevronRight, MdExpandMore, MdCheck, MdClose } from "react-icons/md";
 import {useState} from 'react'
 import PersonalInfo from '@/components/PersonalInfo';
 import Qualification from '@/components/Qualification';
-import LoanQuote from '@/components/LoanQuote';
+import MonthlyAmortization from '@/components/MonthlyAmortization';
 import Identification from '../components/CustomerProfile/Identification';
+import Employment from '@/components/CustomerProfile/Employment';
 
 // AYUSIN MO TO KASE ANDREI AMBOBO MO 
 
 const LoanApplication = () => {
 
     const [showIdentification, setShowIdentification] = useState(true)
-    const [showLoanQuote, setShowLoanQuote] = useState(true)
+    const [showEmployment, setShowEmployment] = useState(true)
+    const [showMonthlyAmortization, setShowMonthlyAmortization] = useState(true)
   
     const identificationNav =() =>{
       setShowIdentification(!showIdentification);
     }
-    const LoanQuoteNav =() =>{
-      setShowLoanQuote(!showLoanQuote);
-  }
+
+    const EmploymentNav =() =>{
+      setShowEmployment(!showEmployment);
+    }
+
+    const MonthlyAmortizationNav =() =>{
+      setShowMonthlyAmortization(!showMonthlyAmortization);
+    }
   
     return (
       <>
@@ -48,15 +55,28 @@ const LoanApplication = () => {
               </div>
             </>
           }
+
           <div>
             <div className='flex justify-start items-center pl-10 pt-4 font-bold text-lg'>
-              <div onClick={LoanQuoteNav} className='cursor-pointer'>
-                {showLoanQuote ? <MdExpandMore size={30}/> : <MdChevronRight size={30}/>  }
+              <div onClick={EmploymentNav} className='cursor-pointer'>
+                {showEmployment ? <MdExpandMore size={30}/> : <MdChevronRight size={30}/>  }
+              </div>
+              <p className='align-middle'>Employment Information(Current)</p>
+            </div>
+            {showEmployment && 
+              <Employment/>
+            }
+          </div>
+
+          <div>
+            <div className='flex justify-start items-center pl-10 pt-4 font-bold text-lg'>
+              <div onClick={MonthlyAmortizationNav} className='cursor-pointer'>
+                {showMonthlyAmortization ? <MdExpandMore size={30}/> : <MdChevronRight size={30}/>  }
               </div>
               <p className='align-middle'>Loan Quote</p>
             </div>
-            {showLoanQuote && 
-              <LoanQuote/>
+            {showMonthlyAmortization && 
+              <MonthlyAmortization/>
             }
           </div>
           <Qualification/>
