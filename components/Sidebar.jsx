@@ -45,12 +45,12 @@ const Sidebar = ({children}) => {
                 </Link>
                 <span className='border-b-[1px] border-gray-200 w-full '></span>
                 <Link href='/customers'>
-                    <div className='flex items-center gap-1 text-white hover:text-blue-400 cursor-pointer my-5 ease-in-out duration-300'>
+                    <div className='flex items-center gap-14 text-white hover:text-blue-400 cursor-pointer my-5 ease-in-out duration-300'>
                         <div>
                             <MdPeopleAlt size={35}/>
                         </div>
                         {showText && 
-                            <p className='font-semibold'>Borrower Search</p>
+                            <p className='font-semibold'>Borrower <p></p> Search</p>
                         }
                     </div>
                 </Link>
