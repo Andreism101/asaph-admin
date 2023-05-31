@@ -17,7 +17,6 @@ const Login = () => {
                 style={{objectFit: "cover"}}
                 quality={100}
             />
-            {/* <img className='object-cover md:max-w-3xl'  alt="" /> */}
         </div>
 
         <div className='absolute w-full h-full top-0 flex flex-col justify-center items-center'>
@@ -29,7 +28,6 @@ const Login = () => {
                         height={100}
                         style={{backgroundSize:"auto"}}
                     />
-                    <img className='bg-auto'  alt="" />
                 </div>
                 <div className='flex flex-col text-white py-2'>
                     <label>Username</label>
@@ -52,9 +50,9 @@ const Login = () => {
                 </div>
             </form>
         </div>
-            <div className='bottom-0 fixed w-full'>
-                <Footer/>
-            </div>
+        <div className='bottom-0 fixed w-full'>
+            <Footer/>
+        </div>
     </div>
   )
 }

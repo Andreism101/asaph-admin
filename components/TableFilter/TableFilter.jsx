@@ -11,7 +11,7 @@ const TableFilter = () => {
       <button 
           onClick={() => setIsOpen((prev) => !prev)}
           type='button'
-          className=' inline-flex text-gray-900 bg-white font-medium rounded-lg w-32 py-1.5 px-3 items-center justify-between hover:bg-slate-300 '
+          className='shadow-md inline-flex text-gray-900 bg-white font-medium rounded-md w-32 py-2 px-3 items-center justify-between hover:bg-slate-300 '
           > 
           
           {!isOpen ? <MdExpandMore/> : <MdChevronRight/>}
@@ -20,12 +20,12 @@ const TableFilter = () => {
 
       {!isOpen && (
         <div 
-          className='absolute w-full flex flex-col items-center justify-between top-11 rounded-md bg-white shadow-lg' 
+          className='absolute w-32 flex flex-col items-center justify-between top-11 rounded-md bg-white shadow-lg' 
         >
           {list.map((item, i) => (
 
             <div 
-              className='flex w-full justify-between cursor-pointer hover:bg-slate-300'
+              className='flex w-32 justify-between cursor-pointer hover:bg-slate-300'
               key={i}
             >
               <h3>{item.option}</h3>
