@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import TopCards from '@/components/TopCards'
 import CustomerTableOverview from '@/components/CustomerTableOverview'
+import AddUser from '@/components/AddUser'
 
 const Dashboard = () => {
   return (
@@ -11,12 +12,12 @@ const Dashboard = () => {
       <meta name='viewport' content='width=device-width, initial-scale=1'/>
       <link rel='icon' href='/assets/ASA-Custom.svg'/>
     </Head>
-      <div className='grid grid-cols-1'>
+      <div className='flex justify-between'>
         <div className='px-5 pt-4 font-bold text-xl'>
           Dashboard
         </div>
-        <div className='px-5 pt-4 font-bold text-xl'>
-          Dashboard
+        <div className='flex px-5 pt-4 justify-end font-bold text-xl'>
+          <AddUser/>
         </div>
       </div>
       <TopCards/>

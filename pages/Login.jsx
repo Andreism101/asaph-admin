@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import Bg from '../public/ASA-Custom2.png'
 import Logo from '../public/ASA-Logo.png'
+import Link from 'next/link'
 
 
 
@@ -46,7 +47,16 @@ const Login = () => {
                     </p>
                 </div>
                 <div className='flex justify-end'>
-                    <button className='w-24 my-5 py-2 bg-[#4DA9EA] rounded-lg text-white font-semibold' type="submit">Login</button>
+                    <Link
+                        href={'/Dashboard'}
+                    >
+                        <button 
+                            className='w-24 my-5 py-2 bg-[#4DA9EA] rounded-lg text-white font-semibold' 
+                            type="submit"
+                        >
+                            Login
+                        </button>
+                    </Link>
                 </div>
             </form>
         </div>

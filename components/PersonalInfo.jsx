@@ -3,7 +3,7 @@ import React from 'react'
 const PersonalInfo = () => {
   return (
     <>
-        <div className='px-5 pt-4 mb-5 font-bold text-xl'>
+      <div className='px-5 pt-4 mb-5 font-bold text-xl'>
         Borrower Details
       </div>
       <div className='pl-10 pt-4 font-bold text-xl'>

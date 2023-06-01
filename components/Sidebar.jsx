@@ -33,7 +33,7 @@ const Sidebar = ({children}) => {
                     </div>
                 </div>
                 <span className='border-b-[1px] border-gray-200 w-full p-2 h-10'></span>
-                <Link href='/'>
+                <Link href='/Dashboard'>
                     <div className='flex items-center gap-11 text-white hover:text-blue-400 cursor-pointer my-5 ease-in-out duration-300'>
                         <div>
                             <MdDashboard size={35}/>
