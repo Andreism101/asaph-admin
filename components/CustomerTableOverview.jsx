@@ -7,9 +7,11 @@ import TableFilter from './TableFilter/TableFilter';
 
 const CustomerTableOverview = () => {
   const [search, setSearch] = useState('');
-  const [sortColumn, setSortColumn] = useState(''); // Updated initial state
-  const [sortDirection, setSortDirection] = useState('asc'); // Updated initial state
+  const [sortColumn, setSortColumn] = useState('loan_id');
+  const [sortDirection, setSortDirection] = useState('asc');
   const [isActiveFilter, setIsActiveFilter] = useState(false);
+  const [isPendingFilter, setIsPendingFilter] = useState(false);
+  const [isDeclinedFilter, setIsDeclinedFilter] = useState(false);
 
   const handleSort = (columnName) => {
     if (sortColumn === columnName) {
@@ -20,8 +22,14 @@ const CustomerTableOverview = () => {
     }
   };
 
-  const handleFilter = (isActive) => {
-    setIsActiveFilter(isActive);
+  const handleFilter = (filterType, checked) => {
+    if (filterType === 'ACTIVE') {
+      setIsActiveFilter(checked);
+    } else if (filterType === 'PENDING') {
+      setIsPendingFilter(checked);
+    } else if (filterType === 'DECLINED') {
+      setIsDeclinedFilter(checked);
+    }
   };
 
   const sortedData = [...data];
@@ -30,6 +38,16 @@ const CustomerTableOverview = () => {
     sortedData.sort((a, b) => {
       const valueA = a[sortColumn].toLowerCase();
       const valueB = b[sortColumn].toLowerCase();
+
+      if (sortColumn === 'loan_id') {
+        // Sort by status order: ACTIVE, PENDING, DECLINED
+        const statusOrder = ['ACTIVE', 'PENDING', 'DECLINED'];
+        const statusA = statusOrder.indexOf(a.status);
+        const statusB = statusOrder.indexOf(b.status);
+        if (statusA !== statusB) {
+          return sortDirection === 'asc' ? statusA - statusB : statusB - statusA;
+        }
+      }
 
       if (valueA < valueB) {
         return sortDirection === 'asc' ? -1 : 1;
@@ -143,19 +161,37 @@ const CustomerTableOverview = () => {
               <th scope="col" className="px-6 py-3">
                 Address
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th
+                scope="col"
+                className="px-6 py-3 cursor-pointer"
+                onClick={() => handleSort('loan_id')}
+              >
                 Loan ID
+                {sortColumn === 'loan_id' && (
+                  <span className="ml-1">
+                    {sortDirection === 'asc' ? (
+                      <MdOutlineArrowDropUp size={16} />
+                    ) : (
+                      <MdOutlineArrowDropDown size={16} />
+                    )}
+                  </span>
+                )}
               </th>
             </tr>
           </thead>
           <tbody>
             {sortedData
               .filter((item) => {
-                if (isActiveFilter) {
-                  return item.status.toLowerCase() === 'active';
-                } else {
+                if (isActiveFilter && item.status.toLowerCase() === 'active') {
+                  return true;
+                } else if (isPendingFilter && item.status.toLowerCase() === 'pending') {
+                  return true;
+                } else if (isDeclinedFilter && item.status.toLowerCase() === 'declined') {
+                  return true;
+                } else if (!isActiveFilter && !isPendingFilter && !isDeclinedFilter) {
                   return true;
                 }
+                return false;
               })
               .filter((item) =>
                 search === ''
@@ -188,25 +224,19 @@ const CustomerTableOverview = () => {
                   <td
                     scope="col"
                     className={`px-6 py-3 font-semibold hover:underline ${
-                    item.status === 'ACTIVE'
-                          ? 'text-green-500'
-                          : item.status === 'PENDING'
-                          ? 'text-orange-500'
-                          : item.status === 'DECLINED'
-                          ? 'text-red-500'
-                          : ''
-                      }`}
+                      item.status === 'ACTIVE'
+                        ? 'text-green-500'
+                        : item.status === 'PENDING'
+                        ? 'text-orange-500'
+                        : item.status === 'DECLINED'
+                        ? 'text-red-500'
+                        : ''
+                    }`}
                   >
-                    <Link href="/customerProfile">
-                      {item.loan_id}
-                  {item.status === 'ACTIVE' && <span className="ml-1">-ACTIVE</span>}
-                      {item.status === 'PENDING' && (
-                        <span className="ml-1">-PENDING</span>
-                      )}
-                      {item.status === 'DECLINED' && (
-                        <span className="ml-1">-DECLINED</span>
-                      )}
-                    </Link>
+                    {item.loan_id}
+                    {item.status === 'ACTIVE' && <span className="ml-1">-ACTIVE</span>}
+                    {item.status === 'PENDING' && <span className="ml-1">-PENDING</span>}
+                    {item.status === 'DECLINED' && <span className="ml-1">-DECLINED</span>}
                   </td>
                 </tr>
               ))}
