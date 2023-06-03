@@ -4,11 +4,12 @@ import Image from 'next/image';
 import React from 'react';
 import Bg from '../public/ASA-Custom2.png';
 import Logo from '../public/ASA-Logo.png';
-import Link from 'next/link';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [validationError, setValidationError] = useState('');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -26,13 +27,15 @@ const Login = () => {
     const isPasswordValid = usernamePattern.test(password);
 
     if (!username || !password) {
-      alert('Please enter both username and password.');
+      setValidationError('Please enter both username and password.');
     } else if (!isUsernameValid || !isPasswordValid) {
-      alert('Invalid characters detected. Only alphabets and numbers are allowed.');
+      setValidationError('Invalid characters detected. Only alphabets and numbers are allowed.');
     } else {
 
       console.log('Username:', username);
       console.log('Password:', password);
+
+      window.location.href = '/Dashboard';
     }
   };
 
@@ -67,6 +70,7 @@ const Login = () => {
               onChange={handlePasswordChange}
             />
           </div>
+          {validationError && <p className='text-red-500'>{validationError}</p>}
           <div className='flex justify-between text-orange-400'>
             <p className='flex items-center'>
               <input className='mr-2' type='checkbox' name='' id='' /> Remember Me
@@ -74,9 +78,9 @@ const Login = () => {
             <p>Forgot Password</p>
           </div>
           <div className='flex justify-end'>
-              <button className='w-24 my-5 py-2 bg-[#4DA9EA] rounded-lg text-white font-semibold' type='submit'>
-                Login
-              </button>
+            <button className='w-24 my-5 py-2 bg-[#4DA9EA] rounded-lg text-white font-semibold' type='submit'>
+              Login
+            </button>
           </div>
         </form>
       </div>
