@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
 import { MdOutlineSearch, MdOutlineArrowDropUp, MdOutlineArrowDropDown } from 'react-icons/md';
 import Export from './Export';
-import { data } from './TestData/test_users';
 import TableFilter from './TableFilter/TableFilter';
+import fireDb from "../pages/firebase";
+import React, { useEffect, useState } from "react";
 
 const CustomerTableOverview = () => {
   const [search, setSearch] = useState('');
@@ -13,26 +13,47 @@ const CustomerTableOverview = () => {
   const [isPendingFilter, setIsPendingFilter] = useState(false);
   const [isDeclinedFilter, setIsDeclinedFilter] = useState(false);
 
-  const handleSort = (columnName) => {
-    if (sortColumn === columnName) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortColumn(columnName);
-      setSortDirection('asc');
-    }
-  };
+//ezi added---------------------------------------------
+  const [data, setData] = useState({});
 
-  const handleFilter = (filterType, checked) => {
-    if (filterType === 'ACTIVE') {
-      setIsActiveFilter(checked);
-    } else if (filterType === 'PENDING') {
-      setIsPendingFilter(checked);
-    } else if (filterType === 'DECLINED') {
-      setIsDeclinedFilter(checked);
-    }
-  };
+  
+  useEffect(() => {
+    fireDb.child("1EaoWoCz_zfqe0M1kl5vkqnVEDSwSrBKZzibAGZ63rrM/Members").on("value", (snapshot) => {
+      if (snapshot.val() !== null) {
+        setData({ ...snapshot.val() });
+      } else {
+        setData({});
+      }
+    });
 
-  const sortedData = [...data];
+    return () => {
+      setData({});
+    };
+}, []);
+
+
+
+//Ezi added------------------------------------------------
+const handleSort = (columnName) => {
+  if (sortColumn === columnName) {
+    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+  } else {
+    setSortColumn(columnName);
+    setSortDirection('asc');
+  }
+};
+
+const handleFilter = (filterType, checked) => {
+  if (filterType === 'ACTIVE') {
+    setIsActiveFilter(checked);
+  } else if (filterType === 'PENDING') {
+    setIsPendingFilter(checked);
+  } else if (filterType === 'DECLINED') {
+    setIsDeclinedFilter(checked);
+  }
+};
+
+const sortedData = Object.values(data);
 
   if (sortColumn !== '') {
     sortedData.sort((a, b) => {
@@ -57,7 +78,8 @@ const CustomerTableOverview = () => {
       }
       return 0;
     });
-  }
+
+}
 
   return (
     <div>
@@ -97,10 +119,10 @@ const CustomerTableOverview = () => {
               <th
                 scope="col"
                 className="px-6 py-3 cursor-pointer"
-                onClick={() => handleSort('id')}
+                onClick={() => handleSort('UserId')}
               >
                 Borrower ID
-                {sortColumn === 'id' && (
+                {sortColumn === 'UserId' && (
                   <span className="ml-1">
                     {sortDirection === 'asc' ? (
                       <MdOutlineArrowDropUp size={16} />
@@ -113,10 +135,10 @@ const CustomerTableOverview = () => {
               <th
                 scope="col"
                 className="px-6 py-3 cursor-pointer"
-                onClick={() => handleSort('first_name')}
+                onClick={() => handleSort('LastName')}
               >
                 First Name
-                {sortColumn === 'first_name' && (
+                {sortColumn === 'LastName' && (
                   <span className="ml-1">
                     {sortDirection === 'asc' ? (
                       <MdOutlineArrowDropUp size={16} />
@@ -129,10 +151,10 @@ const CustomerTableOverview = () => {
               <th
                 scope="col"
                 className="px-6 py-3 cursor-pointer"
-                onClick={() => handleSort('middle_name')}
+                onClick={() => handleSort('LastName')}
               >
                 Middle Name
-                {sortColumn === 'middle_name' && (
+                {sortColumn === 'LastName' && (
                   <span className="ml-1">
                     {sortDirection === 'asc' ? (
                       <MdOutlineArrowDropUp size={16} />
@@ -145,10 +167,10 @@ const CustomerTableOverview = () => {
               <th
                 scope="col"
                 className="px-6 py-3 cursor-pointer"
-                onClick={() => handleSort('last_name')}
+                onClick={() => handleSort('LastName')}
               >
                 Last Name
-                {sortColumn === 'last_name' && (
+                {sortColumn === 'LastName' && (
                   <span className="ml-1">
                     {sortDirection === 'asc' ? (
                       <MdOutlineArrowDropUp size={16} />
@@ -202,24 +224,24 @@ const CustomerTableOverview = () => {
                     item.address.toLowerCase().includes(search)
               )
               .map((item) => (
-                <tr className="bg-white border-b" key={item.id}>
+                <tr className="bg-white border-b" key={item.UserId}>
                   <td
                     scope="col"
                     className="px-6 py-3 text-blue-700 font-semibold hover:underline"
                   >
-                    <Link href="/customerProfile">{item.id}</Link>
+                    <Link href="/customerProfile">{item.UserId}</Link>
                   </td>
                   <td scope="col" className="px-6 py-3">
-                    {item.first_name}
+                    {item.LastName}
                   </td>
                   <td scope="col" className="px-6 py-3">
-                    {item.middle_name}
+                    {item.LastName}
                   </td>
                   <td scope="col" className="px-6 py-3">
-                    {item.last_name}
+                    {item.LastName}
                   </td>
                   <td scope="col" className="px-6 py-3">
-                    {item.address}
+                    {item.LastName}
                   </td>
                   <td
                     scope="col"
@@ -245,6 +267,8 @@ const CustomerTableOverview = () => {
       </div>
     </div>
   );
+  
+ 
 };
 
 export default CustomerTableOverview;
