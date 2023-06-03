@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { MdOutlineSearch, MdOutlineArrowDropUp, MdOutlineArrowDropDown } from 'react-icons/md';
 import Export from './Export';
 import TableFilter from './TableFilter/TableFilter';
-import fireDb from "../pages/firebase";
+import fireDb from "./firebase";
 import React, { useEffect, useState } from "react";
 
 const CustomerTableOverview = () => {
