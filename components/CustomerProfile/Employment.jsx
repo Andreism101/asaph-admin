@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Employment = () => {
+const Employment = ({employment}) => {
+  // const { employmentData } = props;
   return (
     <div>
             <div className='grid md:grid-cols-3 lg:grid-cols-5 font-normal mx-14 '>
@@ -12,7 +13,7 @@ const Employment = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Employed" disabled
+                  value={employment.EmploymentStatus} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -23,7 +24,7 @@ const Employment = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Bolsia, Nadia" disabled
+                  value={employment.EmployersName} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -34,7 +35,7 @@ const Employment = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="09654183275" disabled
+                  value={employment.EmployersContact} disabled
                 />
               </div>
             </div>
@@ -47,7 +48,7 @@ const Employment = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="4" disabled
+                  value={employment.EmployersYearStay}  disabled
                 />
               </div>
               <div className='mx-3'>
@@ -58,7 +59,7 @@ const Employment = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="35,000 - 40,000" disabled
+                  value={employment.MonthlyEarnings} disabled
                 />
               </div>
               <div className='mx-3 col-span-2'>
@@ -69,7 +70,7 @@ const Employment = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="B1 L2 Test St. Test, Test City" disabled
+                  value={employment.EmployersAddress} disabled
                 />
               </div>
             </div>

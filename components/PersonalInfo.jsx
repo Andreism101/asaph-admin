@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PersonalInfo = () => {
+const PersonalInfo = ({personal}) => {
   return (
     <>
       <div className='px-5 pt-4 mb-5 font-bold text-xl'>
@@ -15,7 +15,7 @@ const PersonalInfo = () => {
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="Juan" disabled
+              value={personal.LastName}  disabled
             />
           </div>
           <div className='mx-3'>
@@ -24,7 +24,7 @@ const PersonalInfo = () => {
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="Dela" disabled
+              value={personal.MiddleInitial}disabled
             />
           </div>
           <div className='mx-3'>
@@ -33,18 +33,18 @@ const PersonalInfo = () => {
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="Cruz" disabled
+              value={personal.LastName}disabled
             />
           </div>
-          <div className='mx-3'>
+          {/* <div className='mx-3'>
             <label for='sucess' className='block my-2 text-sm font-medium'>Suffix</label>
             <input 
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="No suffix" disabled
+              value={personal.LastName} disabled
             />
-          </div>
+          </div> */}
         </div>
         <div className='mx-4 font-normal px-4 py-3'>
             <label for='sucess' className='block my-2 text-sm font-medium'>Local Home Address</label>
@@ -52,7 +52,7 @@ const PersonalInfo = () => {
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="B1 L2 Test St. Test, Test City" disabled
+              value={personal.PermanentAddress} disabled
             />
         </div>
         <div className='grid md:grid-cols-3 font-normal mx-5 '>
@@ -62,25 +62,25 @@ const PersonalInfo = () => {
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="09123456789" disabled
+              value={personal.ContactNumber} disabled
             />
           </div>
-          <div className='mx-3'>
+          {/* <div className='mx-3'>
             <label for='sucess' className='block my-2 text-sm font-medium'>Landline</label>
             <input 
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="8-7000" disabled
+              value={personal.ContactNumber} disabled
             />
-          </div>
+          </div> */}
           <div className='mx-3'>
             <label for='sucess' className='block my-2 text-sm font-medium'>Email Address</label>
             <input 
               type="text" id="disabled-input" 
               aria-label="disabled input" 
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-              value="jdelacruz@email.com" disabled
+              value={personal.EmailAddress} disabled
             />
           </div>
         </div>

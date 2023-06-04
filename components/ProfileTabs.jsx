@@ -2,22 +2,22 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const ProfileTabs = () => {
+const ProfileTabs = ({profiletabs}) => {
 
     const router = useRouter()
 
     const navLink = [
         {
             name: "Profile",
-            link: "/customerProfile",
+            link: `/customerProfile`,
         },
         {
             name: "Loan Application",
-            link: "/LoanApplication",
+            link: `/LoanApplication/${profiletabs.UserId}`,
         },
         {
             name: "Borrow History",
-            link: "/BorrowHistory",
+            link: `/BorrowHistory`,
         },
     ]
 

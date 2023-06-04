@@ -1,20 +1,48 @@
 import ProfileTabs from '@/components/ProfileTabs'
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import { MdChevronRight, MdExpandMore, MdCheck, MdClose } from "react-icons/md";
-import {useState} from 'react'
+
 import PersonalInfo from '@/components/PersonalInfo';
 import Qualification from '@/components/Qualification';
 import MonthlyAmortization from '@/components/MonthlyAmortization';
 import Identification from '../components/CustomerProfile/Identification';
 import Employment from '@/components/CustomerProfile/Employment';
-
+import fireDb from "@/components/firebase";
+import { useRouter } from 'next/router';
 // AYUSIN MO TO KASE ANDREI AMBOBO MO 
 
 const LoanApplication = () => {
+    //---------
+    const router = useRouter();
+    const { userId } = router.query;
+    const [user, setUser] = useState({});
+    
+    useEffect(() => {
+      if (userId) {
+        const fetchData = async () => {
+          try {
+            const snapshot = await fireDb
+              .child(`1EaoWoCz_zfqe0M1kl5vkqnVEDSwSrBKZzibAGZ63rrM/Members/${userId}`)
+              .get();
+            if (snapshot.exists()) {
+              setUser({ ...snapshot.val() });
+            } else {
+              setUser({});
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        fetchData();
+      }
+    }, [userId]); 
+
+    //----------
 
     const [showIdentification, setShowIdentification] = useState(true)
     const [showEmployment, setShowEmployment] = useState(true)
     const [showMonthlyAmortization, setShowMonthlyAmortization] = useState(true)
+
   
     const identificationNav =() =>{
       setShowIdentification(!showIdentification);
@@ -30,9 +58,9 @@ const LoanApplication = () => {
   
     return (
       <>
-        <PersonalInfo/>
+        <PersonalInfo personal={user}/>
         <div className='mx-5'>
-          <ProfileTabs/>
+          <ProfileTabs profiletabs={user}/>
         </div>
         <div>
           <div className='flex justify-start items-center  pl-10 pt-4 font-bold text-lg'>
@@ -64,7 +92,7 @@ const LoanApplication = () => {
               <p className='align-middle'>Employment Information(Current)</p>
             </div>
             {showEmployment && 
-              <Employment/>
+              <Employment employment={user}/>
             }
           </div>
 

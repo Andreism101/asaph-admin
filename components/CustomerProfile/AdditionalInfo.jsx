@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdditionalInfo = () => {
+const AdditionalInfo = ({additional}) => {
   return (
     <div>
             <p className='underline ml-16 text-sm font-semibold'>HTH/House & Business Visit(HBV) Indicators</p>
@@ -13,7 +13,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Moderate Poor" disabled
+                  value={additional.PovertyLevel} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -24,7 +24,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Owned" disabled
+                  value={additional.Housing}   disabled
                 />
               </div>
               <div className='mx-3'>
@@ -35,7 +35,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Yes, Sibling" disabled
+                  value={additional.PwdMember}  disabled
                 />
               </div>
             </div>
@@ -48,7 +48,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="No" disabled
+                  value={additional.HiringWorkers} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -59,7 +59,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="No" disabled
+                  value={additional.WorkingAbroad}  disabled
                 />
               </div>
               <div className='mx-3'>
@@ -70,7 +70,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="N/A" disabled
+                  value={additional.IP} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -81,7 +81,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="No" disabled
+                  value={additional.ipg}  disabled
                 />
               </div>
               <div className='mx-3'>
@@ -92,7 +92,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="No" disabled
+                  value={additional.Mcct}  disabled
                 />
               </div>
             </div>
@@ -106,7 +106,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="4 and below" disabled
+                  value={additional.NumberMember} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -117,7 +117,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Completed Highschool" disabled
+                  value={additional.HighestEducation} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -128,7 +128,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Mixed but predominantly strong" disabled
+                  value={additional.Roof}  disabled
                 />
               </div>
               <div className='mx-3'>
@@ -139,7 +139,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Mixed but predominantly strong" disabled
+                  value={additional.Walls}  disabled
                 />
               </div>
             </div>
@@ -152,7 +152,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Grid" disabled
+                  value={additional.Electricity} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -163,7 +163,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Own use, faucet" disabled
+                  value={additional.Water} disabled
                 />
               </div>
             </div>
@@ -176,7 +176,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Yes" disabled
+                  value={additional.Refrigerator} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -187,7 +187,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Yes" disabled
+                  value={additional.tv} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -198,7 +198,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Yes" disabled
+                  value={additional.WashingMachine} disabled
                 />
               </div>
               <div className='mx-3'>
@@ -209,7 +209,7 @@ const AdditionalInfo = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="Unimproved toilet" disabled
+                  value={additional.Toilet}  disabled
                 />
               </div>
             </div>

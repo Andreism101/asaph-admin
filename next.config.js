@@ -7,6 +7,11 @@ const nextConfig = {
       {
         source: '/customerProfile/:userId',
         destination: '/customerProfile',
+      
+      },
+      {
+          source: '/LoanApplication/:userId',
+        destination: '/LoanApplication',
       },
     ];
   },

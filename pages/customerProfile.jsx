@@ -11,23 +11,28 @@ import { useRouter } from 'next/router';
 const customerProfile = () => {
   //--
   const router = useRouter();
-  const { UserId } = router.query;
+  const { userId } = router.query;
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    if (UserId) {
-      fireDb
-        .child(`1EaoWoCz_zfqe0M1kl5vkqnVEDSwSrBKZzibAGZ63rrM/Members/${UserId}`)
-        .get()
-        .then((snapshot) => {
+    if (userId) {
+      const fetchData = async () => {
+        try {
+          const snapshot = await fireDb
+            .child(`1EaoWoCz_zfqe0M1kl5vkqnVEDSwSrBKZzibAGZ63rrM/Members/${userId}`)
+            .get();
           if (snapshot.exists()) {
             setUser({ ...snapshot.val() });
           } else {
             setUser({});
           }
-        });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchData();
     }
-  }, [UserId]);
+  }, [userId]); 
  
   
   //----
@@ -49,12 +54,11 @@ const customerProfile = () => {
   const EmploymentNav =() =>{
     setShowEmployment(!showEmployment);
   }
-  console.log("user", user);
   return (
     <>
-    <PersonalInfo/>
+    <PersonalInfo personal={user}/>
     <div className='mx-5'>
-      <ProfileTabs/>
+      <ProfileTabs profiletabs={user}/>
     </div>
     <div>
       <div className='flex justify-start items-center  pl-10 pt-4 font-bold text-lg'>
@@ -64,7 +68,7 @@ const customerProfile = () => {
         <p className='align-middle'>Identification</p>
       </div>
       {showIdentification && 
-        <Identification/>
+        <Identification />
       }
 
     </div>
@@ -77,7 +81,7 @@ const customerProfile = () => {
       </div>
 
       {showAdditional && 
-        <AdditionalInfo/>
+        <AdditionalInfo additional={user}/>
       }
     </div>
     <div>
@@ -89,7 +93,7 @@ const customerProfile = () => {
       </div>
 
       {showEmployment && 
-        <Employment/>
+        <Employment employment={user}/>
       }
     </div>
   </>
