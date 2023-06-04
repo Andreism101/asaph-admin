@@ -13,6 +13,10 @@ const nextConfig = {
           source: '/LoanApplication/:userId',
         destination: '/LoanApplication',
       },
+      {
+        source: '/BorrowHistory/:userId',
+      destination: '/BorrowHistory',
+    },
     ];
   },
 };

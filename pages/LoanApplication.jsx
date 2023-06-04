@@ -104,7 +104,7 @@ const LoanApplication = () => {
               <p className='align-middle'>Loan Quote</p>
             </div>
             {showMonthlyAmortization && 
-              <MonthlyAmortization/>
+              <MonthlyAmortization monthly={user}/>
             }
           </div>
           <Qualification/>

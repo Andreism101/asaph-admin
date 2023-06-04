@@ -9,7 +9,7 @@ const ProfileTabs = ({profiletabs}) => {
     const navLink = [
         {
             name: "Profile",
-            link: `/customerProfile`,
+            link: `/customerProfile/${profiletabs.UserId}`,
         },
         {
             name: "Loan Application",
@@ -17,7 +17,7 @@ const ProfileTabs = ({profiletabs}) => {
         },
         {
             name: "Borrow History",
-            link: `/BorrowHistory`,
+            link: `/BorrowHistory/${profiletabs.UserId}`,
         },
     ]
 
