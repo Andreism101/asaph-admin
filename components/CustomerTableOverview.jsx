@@ -59,8 +59,8 @@ const sortedData = Object.values(data);
 
   if (sortColumn !== '') {
     sortedData.sort((a, b) => {
-      const valueA = a[sortColumn].toLowerCase();
-      const valueB = b[sortColumn].toLowerCase();
+      const valueA = typeof a[sortColumn] === 'string' ? a[sortColumn].toLowerCase() : a[sortColumn];
+      const valueB = typeof b[sortColumn] === 'string' ? b[sortColumn].toLowerCase() : b[sortColumn];
 
       if (sortColumn === 'loan_id') {
         // Sort by status order: ACTIVE, PENDING, DECLINED
@@ -137,10 +137,10 @@ const sortedData = Object.values(data);
               <th
                 scope="col"
                 className="px-6 py-3 cursor-pointer"
-                onClick={() => handleSort('LastName')}
+                onClick={() => handleSort('FirstName')}
               >
                 First Name
-                {sortColumn === 'LastName' && (
+                {sortColumn === 'FirstName' && (
                   <span className="ml-1">
                     {sortDirection === 'asc' ? (
                       <MdOutlineArrowDropUp size={16} />
@@ -153,10 +153,10 @@ const sortedData = Object.values(data);
               <th
                 scope="col"
                 className="px-6 py-3 cursor-pointer"
-                onClick={() => handleSort('LastName')}
+                onClick={() => handleSort('MiddleInitial')}
               >
-                Middle Name
-                {sortColumn === 'LastName' && (
+                Middle Initial
+                {sortColumn === 'MiddleInitial' && (
                   <span className="ml-1">
                     {sortDirection === 'asc' ? (
                       <MdOutlineArrowDropUp size={16} />
@@ -234,16 +234,16 @@ const sortedData = Object.values(data);
                     <Link href={`/customerProfile/${item.UserId}`}>{item.UserId}</Link>
                   </td>
                   <td scope="col" className="px-6 py-3">
-                    {item.LastName}
+                    {item.FirstName}
+                  </td>
+                  <td scope="col" className="px-6 py-3">
+                    {item.MiddleInitial}
                   </td>
                   <td scope="col" className="px-6 py-3">
                     {item.LastName}
                   </td>
                   <td scope="col" className="px-6 py-3">
-                    {item.LastName}
-                  </td>
-                  <td scope="col" className="px-6 py-3">
-                    {item.LastName}
+                    {item.PermanentAddress}
                   </td>
                   <td
                     scope="col"

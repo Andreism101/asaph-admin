@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 import { MdCheck, MdClose } from "react-icons/md";
 
@@ -8,7 +9,11 @@ const Identification = () => {
               <div className='mx-3'>
                 <div className='flex justify-between my-3 px-3'>
                   <label className='block text-sm font-medium'>Primary ID</label>
+                  <Link 
+                    href='/'
+                  >
                   <label className='block text-sm font-medium'>View</label>
+                  </Link>
                 </div>
                 <input 
                   type="text" id="disabled-input" 
