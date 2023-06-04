@@ -4,6 +4,7 @@ import Export from './Export';
 import TableFilter from './TableFilter/TableFilter';
 import fireDb from "./firebase";
 import React, { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 
 const CustomerTableOverview = () => {
   const [search, setSearch] = useState('');
@@ -16,7 +17,8 @@ const CustomerTableOverview = () => {
 //ezi added---------------------------------------------
   const [data, setData] = useState({});
 
-  
+  const router = useRouter();
+
   useEffect(() => {
     fireDb.child("1EaoWoCz_zfqe0M1kl5vkqnVEDSwSrBKZzibAGZ63rrM/Members").on("value", (snapshot) => {
       if (snapshot.val() !== null) {
@@ -218,10 +220,10 @@ const sortedData = Object.values(data);
               .filter((item) =>
                 search === ''
                   ? item
-                  : item.id.toLowerCase().includes(search) ||
-                    item.first_name.toLowerCase().includes(search) ||
-                    item.last_name.toLowerCase().includes(search) ||
-                    item.address.toLowerCase().includes(search)
+                  : item.UserId.toLowerCase().includes(search) ||
+                    item.LastName.toLowerCase().includes(search) ||
+                    item.LastName.toLowerCase().includes(search) ||
+                    item.LastName.toLowerCase().includes(search)
               )
               .map((item) => (
                 <tr className="bg-white border-b" key={item.UserId}>
@@ -229,7 +231,7 @@ const sortedData = Object.values(data);
                     scope="col"
                     className="px-6 py-3 text-blue-700 font-semibold hover:underline"
                   >
-                    <Link href="/customerProfile">{item.UserId}</Link>
+                    <Link href={`/customerProfile/${item.UserId}`}>{item.UserId}</Link>
                   </td>
                   <td scope="col" className="px-6 py-3">
                     {item.LastName}
