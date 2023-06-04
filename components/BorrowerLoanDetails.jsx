@@ -15,17 +15,6 @@ const BorrowerLoanDetails = () => {
                   value="4/28/23" disabled
                 />
               </div>
-              <div className='mx-3'>
-                <div className='flex justify-between my-3 px-3'>
-                  <label className='block text-sm font-medium'>Encoding Date</label>
-                </div>
-                <input 
-                  type="text" id="disabled-input" 
-                  aria-label="disabled input" 
-                  class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="4/30/23" disabled
-                />
-              </div>
             </div>
             <div className='grid md:grid-cols-3 lg:grid-cols-5 font-normal mx-14 '>
               <div className='mx-3'>
@@ -65,19 +54,6 @@ const BorrowerLoanDetails = () => {
               </div>
               
             </div>
-            <div className='grid lg:grid-cols-2 font-normal mx-14'>
-                <div className='mx-3'>
-                  <div className='flex justify-between my-3 px-3'>
-                    <label className='block text-sm font-medium'>Work Address</label>
-                  </div>
-                  <input 
-                    type="text" id="disabled-input" 
-                    aria-label="disabled input" 
-                    class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                    value="B1 L2 Test St. Test, Test City" disabled
-                  />
-                </div>
-              </div>
           </div>
   )
 }
