@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdArrowBack } from 'react-icons/md'
 import Link from 'next/link'
 import CreateBorrower from '@/components/CreateBorrower'
 
 const CreateUser = () => {
+  const [employeeNumber, setEmployeeNumber] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [middleName, setMiddleName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [suffix, setSuffix] = useState('');
+  const [address, setAddress] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [landline, setLandline] = useState('');
+  const [email, setEmail] = useState('');
+
   return (
     <>
     <div className='pt-4 mb-5 grid grid-cols'>
@@ -22,79 +32,113 @@ const CreateUser = () => {
     </div>
     <div className='grid md:grid-cols-4 font-normal mx-5 '>
           <div className='mx-3 mt-5'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>Employee Number</label>
-            <input 
-              type="text"
-              class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value=""
-            />
+            <label htmlFor='employeeNumber' className='block my-2 text-sm font-medium'>
+            Employee Number
+          </label>
+          <input
+            type='text'
+            id='employeeNumber'
+            className='my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
+            value={employeeNumber}
+            onChange={(e) => setEmployeeNumber(e.target.value)}
+          />
           </div>
           </div>
     <div className='grid md:grid-cols-4 font-normal mx-5 '>
           <div className='mx-3 mt-5'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>First Name</label>
+            <label htmlFor='firstname' className='block my-2 text-sm font-medium'>
+              First Name
+            </label>
             <input 
-              type="text"
+              type='text'
+              id='firstName'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value=""
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
           <div className='mx-3 mt-5'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>Middle Name</label>
+            <label for='sucess' className='block my-2 text-sm font-medium'>
+              Middle Name
+              </label>
             <input 
-              type="text"
+              type='text'
+              id='middleName'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value=""
+              value={middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
             />
           </div>
           <div className='mx-3 mt-5'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>Last Name</label>
+            <label for='sucess' className='block my-2 text-sm font-medium'>
+              Last Name
+              </label>
             <input 
-              type="text"
+              type='text'
+              id='lastName'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value="" 
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <div className='mx-3 mt-5'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>Suffix</label>
+            <label for='sucess' className='block my-2 text-sm font-medium'>
+              Suffix
+              </label>
             <input 
-              type="text"
+              type='text'
+              id='suffix'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value=""
+              value={suffix}
+              onChange={(e) => setSuffix(e.target.value)}
             />
           </div>
         </div>
         <div className='mx-4 font-normal px-4 py-3'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>Local Home Address</label>
+            <label for='sucess' className='block my-2 text-sm font-medium'>
+              Local Home Address
+              </label>
             <input 
-              type="text"
+              type='text'
+              id='address'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value="" 
+              value={address}
+              onChange={(e) => setAddress(e.target.value)} 
             />
         </div>
         <div className='grid md:grid-cols-3 font-normal mx-5 '>
           <div className='mx-3 mt-5'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>Mobile Number</label>
+            <label for='sucess' className='block my-2 text-sm font-medium'>
+              Mobile Number
+              </label>
             <input 
-              type="text"
+              type='text'
+              id='mobileNumber'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value=""
+              value={mobileNumber}
+              onChange={(e) => setMobileNumber(e.target.value)}
             />
           </div>
           <div className='mx-3 mt-5'>
-            <label for='sucess' className='block my-2 text-sm font-medium'>Landline</label>
+            <label for='sucess' className='block my-2 text-sm font-medium'>
+              Landline
+              </label>
             <input 
-              type="text" 
+              type='text'
+              id='landline'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value=""
+              value={landline}
+              onChange={(e) => setLandline(e.target.value)}
             />
           </div>
           <div className='mx-3 mt-5'>
             <label for='sucess' className='block my-2 text-sm font-medium'>Email Address</label>
             <input 
-              type="text"
+              type='text'
+              id='email'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value="" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </div>
