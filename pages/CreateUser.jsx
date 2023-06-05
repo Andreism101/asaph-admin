@@ -4,8 +4,8 @@ import Link from 'next/link'
 import CreateBorrower from '@/components/CreateBorrower'
 
 const CreateUser = () => {
-  const [employeeNumber, setEmployeeNumber] = useState('');
-  const [firstName, setFirstName] = useState('');
+  const [employeeNumber, setEmployeeNumber] = useState("");
+  const [PASSWORD, setPASSWORD] = useState('');
   const [middleName, setMiddleName] = useState('');
   const [lastName, setLastName] = useState('');
   const [suffix, setSuffix] = useState('');
@@ -14,6 +14,31 @@ const CreateUser = () => {
   const [landline, setLandline] = useState('');
   const [email, setEmail] = useState('');
 
+  const [data, setData] = useState({});
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const addNewAdmin = async () => {
+    try {
+      const adminData = {
+        ...data,
+        "EMPLOYEE_NUMBER": employeeNumber,
+      };
+
+      await firebase
+        .database()
+        .ref("1EaoWoCz_zfqe0M1kl5vkqnVEDSwSrBKZzibAGZ63rrM/Admin")
+        .child(employeeNumber)
+        .set(adminData);
+
+      // New admin data added successfully
+    } catch (error) {
+      setError(error.message);
+    }
+  };
   return (
     <>
     <div className='pt-4 mb-5 grid grid-cols'>
@@ -37,7 +62,7 @@ const CreateUser = () => {
           </label>
           <input
             type='text'
-            id='employeeNumber'
+            id='EMPLOYEE_NUMBER'
             className='my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5'
             value={employeeNumber}
             onChange={(e) => setEmployeeNumber(e.target.value)}
@@ -51,10 +76,10 @@ const CreateUser = () => {
             </label>
             <input 
               type='text'
-              id='firstName'
+              id='PASSWORD'
               class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={PASSWORD}
+              onChange={(e) => setPASSWORD(e.target.value)}
             />
           </div>
           <div className='mx-3 mt-5'>
@@ -170,6 +195,7 @@ const CreateUser = () => {
         </div>
         </div>
         <div className='grid md:grid-cols-3 w-1/3 font-normal mx-7 mt-5 '>
+        
           <CreateBorrower/>
         </div>
     </>

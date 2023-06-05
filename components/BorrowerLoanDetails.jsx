@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BorrowerLoanDetails = () => {
+const BorrowerLoanDetails = ({borrow}) => {
   return (
     <div>
             <div className='grid md:grid-cols-3 lg:grid-cols-5 font-normal mx-14 '>
@@ -25,7 +25,7 @@ const BorrowerLoanDetails = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="&#8369;37,654" disabled
+                  value= {borrow.LoanValue}disabled
                 />
               </div>
             </div>
@@ -38,7 +38,7 @@ const BorrowerLoanDetails = () => {
                   type="text" id="disabled-input" 
                   aria-label="disabled input" 
                   class="my-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-not-allowed" 
-                  value="4" disabled
+                  value="6 months" disabled
                 />
               </div>
               <div className='mx-3'>

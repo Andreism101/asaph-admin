@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 
-const CreditedPayments = () => {
+const CreditedPayments = ({credit}) => {
   return (
     <div className='flex justify-center'>
       <div class=" overflow-x-auto px-5 my-5">
@@ -20,7 +20,7 @@ const CreditedPayments = () => {
                                 4/30/23
                             </Link>
                         </td>
-                        <td scope="col" class="px-6 py-3">ADHD938024</td>
+                        <td scope="col" class="px-6 py-3">{credit.EmploymentStatus}</td>
                         <td scope="col" class="px-6 py-3">&#8369;37,654</td>
                     </tr>
                 </tbody>

@@ -6,6 +6,11 @@ import Bg from '../public/ASA-Custom2.png';
 import Logo from '../public/ASA-Logo.png';
 
 
+const mockCredentials = {
+  username: 'Ezi',
+  password: '62187'
+};
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -31,14 +36,14 @@ const Login = () => {
     } else if (!isUsernameValid || !isPasswordValid) {
       setValidationError('Invalid characters detected. Only alphabets and numbers are allowed.');
     } else {
-
-      console.log('Username:', username);
-      console.log('Password:', password);
-
-      window.location.href = '/Dashboard';
+      if (username === mockCredentials.username && password === mockCredentials.password) {
+        console.log('Authentication successful!');
+        window.location.href = '/Dashboard';
+      } else {
+        setValidationError('Authentication failed. Please check your username and password.');
+      }
     }
   };
-
   return (
     <div className='h-screen grid grid-cols-1 justify-items-center content-center bg-slate-600'>
       <div className='flex justify-center items-center '>

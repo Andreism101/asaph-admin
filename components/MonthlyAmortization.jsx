@@ -8,38 +8,38 @@ const MonthlyAmortization = ({monthly}) => {
           <div></div>
           <div className='block md:flex justify-between'>
             <div className=''>Interest Rate</div>
-            <div className='text-right'>{monthly.EmploymentStatus}</div>
+            <div className='text-right'>15%</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
           <div></div>
           <div className='block md:flex justify-between'>
             <div className=''>Loan Term</div>
-            <div className='text-right'>{monthly.EmploymentStatus}</div>
+            <div className='text-right'>6 Months</div>
           </div>
         </div>
-        <div className='grid md:grid-cols-2'>
+        {/* <div className='grid md:grid-cols-2'>
           <div></div>
           <div className='block md:flex justify-between'>
             <div className=''>First Due (Month)</div>
             <div className='text-right'>{monthly.EmploymentStatus}</div>
           </div>
-        </div>
-        <div className='grid md:grid-cols-2'>
+        </div> */}
+        {/* <div className='grid md:grid-cols-2'>
           <div></div>
           <div className='block md:flex justify-between'>
             <div className=''>Maturity Date</div>
             <div className='text-right'>{monthly.EmploymentStatus}</div>
           </div>
-        </div>
-        <div className='grid md:grid-cols-2 '>
+        </div> */}
+        {/* <div className='grid md:grid-cols-2 '>
           <div></div>
           <div className='block md:flex justify-between font-semibold'>
             <hr className='border-black' />
             <div className=''>{monthly.EmploymentStatus}</div>
             <div className='text-right'>&#8369;0.00</div>
           </div>
-        </div>
+        </div> */}
         <div className='text-center font-semibold'>
           LESS
         </div>
@@ -47,7 +47,7 @@ const MonthlyAmortization = ({monthly}) => {
           <div></div>
           <div className='block md:flex justify-between'>
             <div className=''>Deductions</div>
-            <div className='text-right'>{monthly.EmploymentStatus}</div>
+            <div className='text-right'>12% First 3 weeks</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2'>
@@ -56,10 +56,10 @@ const MonthlyAmortization = ({monthly}) => {
             <hr className='border-black' />
             <div className='flex justify-between font-semibold'>
               <div className='text-start '>
-                Net Loan
+                Net Amount
               </div>
               <div className='text-right'>
-                &#8369;0.00
+                &#8369;{monthly.LoanValue}
               </div>
             </div>
           </div>

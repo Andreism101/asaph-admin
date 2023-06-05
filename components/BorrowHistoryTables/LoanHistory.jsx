@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 
-const LoanHistory = () => {
+const LoanHistory = ({history}) => {
   return (
     <>
         <div class=" overflow-x-auto shadow-md px-5 my-5">
@@ -21,12 +21,12 @@ const LoanHistory = () => {
                                 4/30/23
                             </Link>
                         </td>
-                        <td scope="col" class="px-6 py-3">ADHD938024</td>
-                        <td scope="col" class="px-6 py-3">&#8369;37,654</td>
+                        <td scope="col" class="px-6 py-3">{history.load_id}</td>
+                        <td scope="col" class="px-6 py-3">&#8369;{history.LoanValue}</td>
                         <td scope="col" class="px-6 py-3">
                             <div class="flex flex-col items-center">
                                 <div class="h-2.5 w-2.5 rounded-full bg-yellow-500 mr-2"></div> 
-                                Partially Paid
+                                {history.status}
                             </div>
                         </td>
                     </tr>

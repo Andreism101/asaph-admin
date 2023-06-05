@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StatementOfAccount = () => {
+const StatementOfAccount = ({statement}) => {
   return (
     <div className='mx-16 grid grid-cols-1 md:px-10'>
         <div className='text-center font-semibold m-3'>Current Due</div>
@@ -15,7 +15,7 @@ const StatementOfAccount = () => {
           <div></div>
           <div className='block md:flex justify-between'>
             <div className=''>Interest Rate</div>
-            <div className='text-right'>6%</div>
+            <div className='text-right'>{statement.EmploymentStatus}</div>
           </div>
         </div>
         <div className='grid md:grid-cols-2 '>
